@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Xx4ryLK8mHiL0kvLpL2LQfF7fW+dGeZG4ig7BcZTd+/SccJAUUVDblcZmWkjmYQpmQoA0YoXKbxBeouMDLKRKw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lukas\\Synced_Documents\\Programming\\C#\\jubilant\\jubilant\\jubilant.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lukas\\.nuget\\packages\\materialdesigncolors\\2.0.0\\materialdesigncolors.2.0.0.nupkg.sha512",
+    "C:\\Users\\Lukas\\.nuget\\packages\\materialdesignthemes\\4.0.0\\materialdesignthemes.4.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
