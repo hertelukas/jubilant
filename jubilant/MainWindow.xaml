@@ -6,5 +6,5 @@
         xmlns:local="clr-namespace:jubilant"
         mc:Ignorable="d"
         Title="Jubilant" Height="450" Width="800"
-                  Source="../Pages/StartPage.xaml" ResizeMode="CanResize" WindowState="Maximized" Topmost="True">
+                  Source="../Pages/StartPage.xaml" ResizeMode="CanResize" WindowState="Maximized">
 </NavigationWindow>

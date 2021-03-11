@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +22,14 @@ namespace jubilant.Pages
         public StartPage()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.ip = ip.Text;
+            Manager.username = Username.Text;
+
+            Client.StartClient();
         }
     }
 }
