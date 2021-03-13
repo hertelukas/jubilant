@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace jubilant
 {
@@ -14,6 +15,11 @@ namespace jubilant
 
         //The response from the server
         private static String response = String.Empty;
+
+        private static ManualResetEvent connectDone = new ManualResetEvent(false);
+        private static ManualResetEvent sendDone = new ManualResetEvent(false);
+        private static ManualResetEvent receiveDone = new ManualResetEvent(false);
+
 
         public static void StartClient()
         {
@@ -29,8 +35,17 @@ namespace jubilant
                 client = new Socket(iPAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
                 client.BeginConnect(remoteEP, new AsyncCallback(ConnectCallback), null);
+                connectDone.WaitOne();
+
+                Package package = new Packages.Welcome();
+                package.Send();
+                sendDone.WaitOne();
+
+                StartReceiving();
+                receiveDone.WaitOne();
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine(e.ToString());
             }
@@ -41,9 +56,8 @@ namespace jubilant
             try
             {
                 client.EndConnect(ar);
-                StartReceiving();
-                Package package = new Packages.Welcome();
-                package.Send();
+                connectDone.Set();
+
             }
             catch(Exception e)
             {
@@ -93,7 +107,8 @@ namespace jubilant
 
                         //We wait for the next connection
                         Debug.WriteLine($"Received: {response}");
-                        //Todo handle package
+                        Manager.HandlePackage(new Package(response));
+                        receiveDone.Set();
                         StartReceiving();
                     }
                     else
@@ -134,6 +149,7 @@ namespace jubilant
                 // Complete sending the data to the remote device.  
                 int bytesSent = client.EndSend(ar);
                 Debug.WriteLine("Sent {0} bytes to server.", bytesSent);
+                sendDone.Set();
 
             }
             catch (Exception e)
@@ -142,9 +158,10 @@ namespace jubilant
             }
         }
 
-        private static void Disconnect()
+        public static void Disconnect()
         {
-            //TODO send logout data
+            Package disconnect = new Packages.Disconnect();
+            disconnect.Send();
             client.Shutdown(SocketShutdown.Both);
             client.Close();
         }

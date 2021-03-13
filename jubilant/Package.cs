@@ -12,7 +12,6 @@ namespace jubilant
         public string version { get; set; }
         public string content { get; set; }
 
-
         public Package(string data)
         {
             if (string.IsNullOrEmpty(data)) return;

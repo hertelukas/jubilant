@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,14 +23,53 @@ namespace jubilant.Pages
         public StartPage()
         {
             InitializeComponent();
+            Manager.SetStartPage(this);
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            Manager.ip = ip.Text;
-            Manager.username = Username.Text;
+            Feedback.Content = "Logging in...";
 
-            Client.StartClient();
+            Manager.ip = ip.Text;
+            Manager.username = Username.Text.Trim();
+
+            Thread thread = new Thread(Client.StartClient);
+            thread.Start();
+        }
+
+        private void CheckLegalInput()
+        {
+            if (Username.Text.IndexOf(":") != -1)
+            {
+                Feedback.Content = "Username can't contain ':'";
+                LoginButton.IsEnabled = false;
+            }
+            else if(Username.Text.Trim().IndexOf(" ") != -1)
+            {
+                Feedback.Content = "Username can't contain any white spaces";
+                LoginButton.IsEnabled = false;
+            }
+            else if(Username.Text.Length == 0)
+            {
+                Feedback.Content = "Username can't be empty";
+                LoginButton.IsEnabled = false;
+            }
+            else
+            {
+                Feedback.Content = "";
+                LoginButton.IsEnabled = true;
+            }
+
+        }
+
+        private void Username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CheckLegalInput();
+        }
+
+        public void UsernameTaken()
+        {
+            Feedback.Content = "Username taken";
         }
     }
 }

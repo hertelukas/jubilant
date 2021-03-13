@@ -23,6 +23,20 @@ namespace jubilant
         public MainWindow()
         {
             InitializeComponent();
+            Manager.SetWindow(this);
+        }
+
+        private void NavigationWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (Client.Connected())
+            {
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to disconnect?", "Closing...", MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No);
+                if (result == MessageBoxResult.No) e.Cancel = true;
+                else
+                {
+                    Client.Disconnect();
+                }
+            }
         }
     }
 }

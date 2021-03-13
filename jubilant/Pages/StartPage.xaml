@@ -24,12 +24,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Label HorizontalAlignment="Center">Username</Label>
-            <TextBox x:Name="Username" MaxLines="1" HorizontalAlignment="Center" MinWidth="200" Margin="0 10"></TextBox>
-            <Label HorizontalAlignment="Center">Server</Label>
-            <TextBox x:Name="ip" MaxLines="1" HorizontalAlignment="Center" MinWidth="200" Margin="0 10"></TextBox>
-            <Button x:Name="LoginButton" HorizontalAlignment="Center" Margin="0 10" Click="LoginButton_Click">Login</Button>
-            <Label HorizontalAlignment="Center">Some Placeholder</Label>
+            <Label HorizontalAlignment="Center" FontSize="18">Username</Label>
+            <TextBox x:Name="Username" MaxLines="1" HorizontalAlignment="Center" MinWidth="200" Margin="0 10" TextChanged="Username_TextChanged"></TextBox>
+            <Label HorizontalAlignment="Center" FontSize="18">Server</Label>
+            <TextBox x:Name="ip" MaxLines="1" HorizontalAlignment="Center" MinWidth="200" Margin="0 10">192.168.1.187</TextBox>
+            <Button x:Name="LoginButton" HorizontalAlignment="Center" Margin="0 10" Click="LoginButton_Click" IsEnabled="False">Login</Button>
+            <Label x:Name="Feedback" HorizontalAlignment="Center"></Label>
         </StackPanel>
         
 

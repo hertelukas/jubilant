@@ -6,6 +6,6 @@ namespace jubilant
 {
     public enum PackageType
     {
-        Welcome, WelcomeReceived
+        Welcome, WelcomeReceived, UsernameTaken, CreateGame, GameCreated, Disconnect
     }
 }

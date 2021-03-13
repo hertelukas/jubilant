@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\App.xaml
-2-374086933
+4-512859057
 
-9-526259017
-194-1893397226
-MainWindow.xaml;Pages\StartPage.xaml;
+13-6392109
+1941556286302
+MainWindow.xaml;Pages\CreateGame.xaml;Pages\Menu.xaml;Pages\StartPage.xaml;
 
 False
 

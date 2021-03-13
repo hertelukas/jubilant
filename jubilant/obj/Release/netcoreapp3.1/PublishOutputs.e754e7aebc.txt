@@ -1,0 +1,7 @@
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\jubilant.exe
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\jubilant.dll
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\jubilant.deps.json
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\jubilant.runtimeconfig.json
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\jubilant.pdb
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\MaterialDesignColors.dll
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\publish\MaterialDesignThemes.Wpf.dll

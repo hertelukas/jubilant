@@ -23,3 +23,7 @@ C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\Debug\netco
 C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\bin\Debug\netcoreapp3.1\MaterialDesignThemes.Wpf.dll
 C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\obj\Debug\netcoreapp3.1\App.baml
 C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\obj\Debug\netcoreapp3.1\jubilant.csproj.CopyComplete
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\obj\Debug\netcoreapp3.1\Pages\Menu.g.cs
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\obj\Debug\netcoreapp3.1\Pages\Menu.baml
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\obj\Debug\netcoreapp3.1\Pages\CreateGame.g.cs
+C:\Users\Lukas\Synced_Documents\Programming\C#\jubilant\jubilant\obj\Debug\netcoreapp3.1\Pages\CreateGame.baml
