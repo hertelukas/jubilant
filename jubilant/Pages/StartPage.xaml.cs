@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,14 +40,11 @@ namespace jubilant.Pages
 
         private void CheckLegalInput()
         {
-            if (Username.Text.IndexOf(":") != -1)
+            Regex regex = new Regex("[^a-z0-9]");
+
+            if (regex.IsMatch(Username.Text))
             {
-                Feedback.Content = "Username can't contain ':'";
-                LoginButton.IsEnabled = false;
-            }
-            else if(Username.Text.Trim().IndexOf(" ") != -1)
-            {
-                Feedback.Content = "Username can't contain any white spaces";
+                Feedback.Content = "Username can't contain special characters";
                 LoginButton.IsEnabled = false;
             }
             else if(Username.Text.Length == 0)

@@ -24,7 +24,7 @@ namespace jubilant.Pages
         {
             InitializeComponent();
             HelloText.Content = $"Hello {Manager.username}!";
-
+            Manager.SetMenu(this);
         }
 
         private void GamesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -37,6 +37,44 @@ namespace jubilant.Pages
         {
             nav = NavigationService.GetNavigationService((Page)this);
             if (nav != null) nav.Navigate(new CreateGame());
+        }
+
+        public void UpdateGames(Dictionary<int, Game> games)
+        {
+            GamesList.Items.Clear();
+            foreach (var game in games)
+            {
+
+                Grid grid = new Grid
+                {
+                    Width = 284
+                };
+                grid.ColumnDefinitions.Add(new ColumnDefinition {
+                    Width = new GridLength(1, GridUnitType.Star)
+                });
+                grid.ColumnDefinitions.Add(new ColumnDefinition {
+                    Width = new GridLength(1, GridUnitType.Star)
+                });
+
+                TextBlock title = new TextBlock
+                {
+                    Text = game.Value.name
+                };
+
+                TextBlock players = new TextBlock
+                {
+                    Text = $"{game.Value.players.Count} / {game.Value.maxPlayers}",
+                    HorizontalAlignment = HorizontalAlignment.Right
+                };
+
+
+                players.SetValue(Grid.ColumnProperty, 1);
+                grid.Children.Add(title);
+                grid.Children.Add(players);
+
+
+                GamesList.Items.Add(grid);
+            }
         }
     }
 }

@@ -16,7 +16,9 @@ namespace jubilant
         public static string ip { get; set; } = "192.168.1.187";
         private static NavigationWindow window;
         private static Pages.StartPage startPage;
+        private static Pages.Menu menuPage;
         private static NavigationService nav;
+        private static Dictionary<int, Game> games { get; set; } = new Dictionary<int, Game>();
 
         public static void HandlePackage(Package package)
         {
@@ -42,7 +44,7 @@ namespace jubilant
                     Debug.WriteLine("Username is taken");
                     break;
                 case PackageType.GameCreated:
-                    Debug.WriteLine(package.content);
+                    HandleNewGame(package);
                     break;
                 default:
                     break;
@@ -57,6 +59,41 @@ namespace jubilant
         public static void SetStartPage(Pages.StartPage page)
         {
             Manager.startPage = page;
+        }
+
+        public static void SetMenu(Pages.Menu menu)
+        {
+            Manager.menuPage = menu;
+        }
+
+        private static void HandleNewGame(Package package)
+        {
+            string[] args = package.content.Split(",");
+            string gameName = args[0];
+
+            bool parseSuccess = false;
+
+            int players = 0;
+            parseSuccess = Int32.TryParse(args[1], out players) || parseSuccess;
+            int gameId = 0;
+            parseSuccess = Int32.TryParse(args[2], out gameId) || parseSuccess;
+            int adminId = 0;
+            parseSuccess = Int32.TryParse(args[3], out adminId) || parseSuccess;
+
+            if (!parseSuccess) Debug.WriteLine("Parsing of new game package failed.");
+            else
+            {
+                Game game = new Game(gameName, players, gameId, adminId);
+                if (games.TryAdd(gameId, game))
+                {
+                    Application.Current.Dispatcher.Invoke((Action)delegate
+                    {
+                        menuPage.UpdateGames(games);
+                    });
+                }
+
+            }
+
         }
     }
 }

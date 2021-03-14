@@ -26,12 +26,19 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <Label x:Name="HelloText" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontSize="24">Hello weirdo</Label>
+        <Label x:Name="HelloText" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontSize="24">Hello name</Label>
 
         <ListBox x:Name="GamesList" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" MaxWidth="300" SelectionChanged="GamesList_SelectionChanged">
-            <ListBoxItem>Nice</ListBoxItem>
-            <ListBoxItem>Nice</ListBoxItem>
-            <ListBoxItem>Nice</ListBoxItem>
+            <ListBoxItem>
+                <Grid Width="284" Margin="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" >Game Name</TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Right">3 / 10</TextBlock>
+                </Grid>
+            </ListBoxItem>
         </ListBox>
 
 

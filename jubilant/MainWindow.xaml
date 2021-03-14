@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:jubilant"
         mc:Ignorable="d"
+        Navigating="NavigationWindow_Navigating"
         Title="Jubilant" Height="450" Width="800"
                   Source="../Pages/StartPage.xaml" ResizeMode="CanResize" WindowState="Maximized"
                   Closing="NavigationWindow_Closing">

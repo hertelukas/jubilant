@@ -19,7 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
@@ -28,10 +28,11 @@
 
         <StackPanel Grid.Row="2" Grid.Column="1">
             <Label HorizontalAlignment="Center" FontSize="18">Name</Label>
-            <TextBox x:Name="GameName" MaxLines="1" HorizontalAlignment="Center" MinWidth="200" Margin="0 10"></TextBox>
+            <TextBox x:Name="GameName" MaxLines="1" HorizontalAlignment="Center" MinWidth="200" Margin="0 10" TextChanged="GameName_TextChanged"></TextBox>
             <Label HorizontalAlignment="Center" FontSize="18">Max. Players</Label>
             <TextBox x:Name="MaxPlayers" MaxLines="1" HorizontalAlignment="Center"  MinWidth="200" Margin="0 10" TextChanged="MaxPlayers_TextChanged"/>
-            <Button x:Name="CreateButton" HorizontalAlignment="Center" Margin="0 10" Click="CreateButton_Click">Create</Button>
+            <Button x:Name="CreateButton" HorizontalAlignment="Center" Margin="0 10" IsEnabled="False" Click="CreateButton_Click">Create</Button>
+            <Label x:Name="Feedback" HorizontalAlignment="Center"></Label>
         </StackPanel>
 
     </Grid>
